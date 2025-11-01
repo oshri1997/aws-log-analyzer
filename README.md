@@ -1,50 +1,50 @@
 # 🔍 AWS Log Analyzer
 
-אפליקציית React מתקדמת לניתוח VPC Flow Logs של AWS עם ממשק משתמש אינטואיטיבי ויכולות חיפוש מתקדמות.
+Advanced React application for analyzing AWS VPC Flow Logs with an intuitive user interface and advanced search capabilities.
 
-## ✨ תכונות עיקריות
+## ✨ Key Features
 
-- **העלאת קבצי לוג** - תמיכה בקבצי `.log` ו-`.txt` עם drag & drop
-- **חיפוש מתקדם** - חיפוש לפי כתובת IP מקור עם debouncing
-- **זיהוי שירותים** - זיהוי אוטומטי של שירותי AWS לפי פורטים
-- **מיון דינמי** - מיון לפי כל עמודה בטבלה
-- **טעינה הדרגתית** - infinite scrolling לביצועים מיטביים
-- **ייצוא נתונים** - ייצוא התוצאות המסוננות לקובץ טקסט
-- **עיצוב רספונסיבי** - מותאם לכל גדלי מסך
+- **Log File Upload** - Support for `.log` and `.txt` files with drag & drop
+- **Advanced Search** - Search by source IP address with debouncing
+- **Service Detection** - Automatic AWS service identification by ports
+- **Dynamic Sorting** - Sort by any table column
+- **Infinite Scrolling** - Gradual loading for optimal performance
+- **Data Export** - Export filtered results to text file
+- **Responsive Design** - Adapted for all screen sizes
 
-## 🛠️ טכנולוגיות
+## 🛠️ Technologies
 
-- **React 19** - ספריית UI מתקדמת
-- **Vite** - כלי build מהיר
-- **Tailwind CSS** - framework CSS מודרני
-- **ESLint** - linting לקוד איכותי
+- **React 19** - Advanced UI library
+- **Vite** - Fast build tool
+- **Tailwind CSS** - Modern CSS framework
+- **ESLint** - Code quality linting
 
-## 🚀 התקנה והרצה
+## 🚀 Installation & Setup
 
 ```bash
-# שכפול הפרויקט
+# Clone the project
 git clone <repository-url>
 cd log-analyzer-react
 
-# התקנת dependencies
+# Install dependencies
 npm install
 
-# הרצה במצב פיתוח
+# Run in development mode
 npm run dev
 
-# בניית הפרויקט לפרודקשן
+# Build for production
 npm run build
 
-# הרצת preview של הבנייה
+# Run production preview
 npm run preview
 ```
 
-## 📋 שירותים נתמכים
+## 📋 Supported Services
 
-האפליקציה מזהה אוטומטית את השירותים הבאים לפי פורטים:
+The application automatically identifies the following services by ports:
 
-| פורט | שירות |
-|------|--------|
+| Port | Service |
+|------|---------|
 | 22 | SSH |
 | 80 | HTTP |
 | 179 | BGP |
@@ -79,45 +79,45 @@ npm run preview
 | 25888 | CloudWatch-Agent |
 | 51678 | ECS-Agent |
 
-## 📊 פורמט קובץ הלוג
+## 📊 Log File Format
 
-האפליקציה מצפה לקבצי VPC Flow Logs בפורמט הסטנדרטי של AWS:
+The application expects AWS VPC Flow Logs in standard format:
 
 ```
 version account-id interface-id srcaddr dstaddr srcport dstport protocol packets bytes start end action log-status
 2 123456789012 eni-1235b8ca 172.31.16.139 172.31.16.21 20641 22 6 20 4249 1418530010 1418530070 ACCEPT OK
 ```
 
-## 🎯 שימוש
+## 🎯 Usage
 
-1. **העלאת קובץ** - גרור קובץ לוג לאזור המיועד או לחץ על "Choose File"
-2. **חיפוש** - הקלד כתובת IP מקור בשדה החיפוש
-3. **מיון** - לחץ על כותרות העמודות למיון
-4. **ייצוא** - לחץ על "Export to .txt" לשמירת התוצאות
+1. **Upload File** - Drag log file to designated area or click "Choose File"
+2. **Search** - Type source IP address in search field
+3. **Sort** - Click column headers to sort
+4. **Export** - Click "Export to .txt" to save results
 
-## 🏗️ מבנה הפרויקט
+## 🏗️ Project Structure
 
 ```
 src/
 ├── components/
-│   ├── LogUploader.jsx    # קומפוננט העלאת קבצים
-│   ├── SearchBar.jsx      # שורת חיפוש
-│   └── LogTable.jsx       # טבלת התוצאות
-├── App.jsx                # קומפוננט ראשי
-├── main.jsx              # נקודת כניסה
-└── index.css             # סגנונות גלובליים
+│   ├── LogUploader.jsx    # File upload component
+│   ├── SearchBar.jsx      # Search bar
+│   └── LogTable.jsx       # Results table
+├── App.jsx                # Main component
+├── main.jsx              # Entry point
+└── index.css             # Global styles
 ```
 
-## 🔧 פיתוח
+## 🔧 Development
 
 ```bash
-# הרצת linting
+# Run linting
 npm run lint
 
-# הרצה במצב פיתוח עם hot reload
+# Run in development mode with hot reload
 npm run dev
 ```
 
-## 📝 רישיון
+## 📝 License
 
-פרויקט זה הוא קוד פתוח ומיועד למטרות חינוכיות ופיתוח.
+This project is open source and intended for educational and development purposes.
