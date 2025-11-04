@@ -19,13 +19,23 @@ function App() {
   const [logs, setLogs] = useState([]);
   const [filteredLogs, setFilteredLogs] = useState([]);
 
-  const parseLogFile = (content) => {
+  const parseLogFile = (content, fileName) => {
     const lines = content.split('\n').filter(line => line.trim());
     const parsed = [];
+    const isCSV = fileName?.endsWith('.csv');
 
     for (let i = 1; i < lines.length; i++) {
-      const parts = lines[i].trim().split(/\s+/);
-      if (parts.length >= 14) {
+      let parts;
+      if (isCSV) {
+        const csvParts = lines[i].split(',');
+        if (csvParts.length >= 2) {
+          parts = csvParts[1].trim().split(/\s+/);
+        }
+      } else {
+        parts = lines[i].trim().split(/\s+/);
+      }
+      
+      if (parts && parts.length >= 14) {
         const dstport = parseInt(parts[6]);
         parsed.push({
           version: parts[0],

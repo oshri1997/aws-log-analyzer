@@ -5,13 +5,13 @@ function LogUploader({ onFileLoad }) {
   const [isDragging, setIsDragging] = useState(false);
 
   const handleFile = (file) => {
-    if (file && (file.name.endsWith('.log') || file.name.endsWith('.txt'))) {
+    if (file && (file.name.endsWith('.log') || file.name.endsWith('.txt') || file.name.endsWith('.csv'))) {
       setFileName(file.name);
       const reader = new FileReader();
-      reader.onload = (e) => onFileLoad(e.target.result);
+      reader.onload = (e) => onFileLoad(e.target.result, file.name);
       reader.readAsText(file);
     } else {
-      alert('Please select a .log or .txt file');
+      alert('Please select a .log, .txt, or .csv file');
     }
   };
 
@@ -38,11 +38,11 @@ function LogUploader({ onFileLoad }) {
       <div className="flex items-center justify-center gap-4">
         <div className="text-4xl">📁</div>
         <div>
-          <p className="text-sm text-gray-600 mb-2">Drag log file here or</p>
+          <p className="text-sm text-gray-600 mb-2">Drag log file (.log/.txt/.csv) here or</p>
           <label className="inline-block">
             <input 
               type="file" 
-              accept=".log,.txt"
+              accept=".log,.txt,.csv"
               onChange={(e) => handleFile(e.target.files[0])}
               className="hidden"
             />
